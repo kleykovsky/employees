@@ -45,7 +45,5 @@ class EmployeesListItem extends Component {
          )
      }
 
-
-
 }
 export default EmployeesListItem;
