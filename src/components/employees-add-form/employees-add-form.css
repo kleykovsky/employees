@@ -1,4 +1,4 @@
-.app-add-form {
+.appAddForm {
     margin-top: 30px;
     padding: 25px;
     background-color: #0A2F50D8;
@@ -14,4 +14,10 @@
 .add-form input {
     width: 350px;
     margin-right: 20px;
+}
+.add-form-opt {
+    display: block;
+    width: 10px;
+    height: 20px;
+
 }
