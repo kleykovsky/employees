@@ -29,7 +29,7 @@ class EmployeesAddForm extends Component {
     }
 
     render() {
-        const {title, text} = this.props;
+        const {title, text, textBtn, ren} = this.props;
         const {name, salary} = this.state;
 
         return(
@@ -54,6 +54,12 @@ class EmployeesAddForm extends Component {
                     <button type="submit"
                             className="btn btn-outline-light"
                             >{text}
+                    </button>
+                    <button
+                        type='button'
+                        className="btn btn-outline-light"
+                        onClick={ren}>
+                            {textBtn}
                     </button>
                 </form>
             </div>

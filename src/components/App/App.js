@@ -4,6 +4,7 @@ import SearchPanel from "../search-panel/search-panel";
 import AppFilter from    "../app-filter/app-filter";
 import EmployeesList from "../employees-list/employees-list";
 import EmployeesAddForm from "../employees-add-form/employees-add-form";
+import nextId from "react-id-generator";
 import './App.css';
 
 class App extends Component {
@@ -11,13 +12,11 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                {name: 'Alex K.', salary: 1500, increase: false, id: 1, },
-                {name: 'John S.', salary: 1200, increase: false, id: 2, },
-                {name: 'Anna R.', salary: 2000, increase: true,  id: 3, },
-
+                {name: 'Alex K.', salary: 1500, increase: false, id: nextId()},
+                {name: 'John S.', salary: 1200, increase: false, id: nextId()},
+                {name: 'Anna R.', salary: 2000, increase: true, id: nextId()},
             ]
         }
-        this.maxId = 4
     }
 
     deleteItem = (id) => {
@@ -27,29 +26,28 @@ class App extends Component {
             // const before = data.slice(0, index);
             // const after = data.slice(index + 1);
             // const newArr = [...before, ...after];
-
             return{
                 data: data.filter(item => item.id !== id),
-            }
-        })
-    }
 
+            }
+
+        })
+        // console.log(id)
+    }
 
     addItem = (name, salary) => {
         const newItem = {
             name,
             salary,
             increase: false,
-            id: this.maxId++
+            id: nextId()
         }
         this.setState(({data}) => {
             const newArr = [...data, newItem]
             return{
                 data: newArr
             }
-
         });
-
     }
 
 
@@ -71,6 +69,9 @@ class App extends Component {
                     title={'Добавьте нового сотрудника'}
                     text={'Submit'}
                     addNewPerson={this.addItem}
+                    textBtn={'Click'}
+                    ren={() => console.log('click')}
+
                 />
             </div>
         )
