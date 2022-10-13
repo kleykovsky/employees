@@ -1,6 +1,7 @@
 import {Component, useState} from "react";
 import './employees-add-form.css';
-
+import ButtonSubmit from "../UI/Buttons/ButtonSubmit";
+import ButtonClick from "../UI/Buttons/ButtonClick";
 
 
 class EmployeesAddForm extends Component {
@@ -9,7 +10,6 @@ class EmployeesAddForm extends Component {
         this.state = {
             name: '',
             salary: '',
-
         }
     }
 
@@ -28,8 +28,15 @@ class EmployeesAddForm extends Component {
         })
     }
 
+    clrVal = () => {
+            this.setState(({
+                name:  this.state.name = '',
+                salary:  this.state.salary = '',
+            }))
+    }
+
     render() {
-        const {title, text, textBtn, ren} = this.props;
+        const {title} = this.props;
         const {name, salary} = this.state;
 
         return(
@@ -38,7 +45,6 @@ class EmployeesAddForm extends Component {
                 <form
                     className="add-form d-flex"
                     onSubmit = {this.onSubmit}>
-
                     <input type="text"
                            className="form-control new-post-label"
                            placeholder="Как его зовут?"
@@ -50,18 +56,13 @@ class EmployeesAddForm extends Component {
                            placeholder="З/П в $?"
                            name={'salary'}
                            value={salary}
-                           onChange={this.onValueChange}/>
-                    <button type="submit"
-                            className="btn btn-outline-light"
-                            >{text}
-                    </button>
-                    <button
-                        type='button'
-                        className="btn btn-outline-light"
-                        onClick={ren}>
-                            {textBtn}
-                    </button>
+                           onChange={this.onValueChange}
+                    />
+                    <ButtonSubmit text={'Add new Person'}/>
                 </form>
+                <ButtonClick text={'Clear'}
+                             rend={this.clrVal}
+                />
             </div>
         )
     }

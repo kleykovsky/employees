@@ -1,0 +1,28 @@
+.btnSubmit {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    border: solid 1px ;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(10, 47, 80, 0);
+}
+.btnSubmit:hover {
+    background-color: white;
+    color: black;
+    border: none;
+}
+.btnClick {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    border: solid 1px #330b0b;
+    border-radius: 100%;
+    color: #330b0b;
+    background-color: rgba(57, 48, 114, 0);
+}
+.btnClick:hover {
+    background-color: white;
+    color: #330b0b;
+    border: none;
+}
