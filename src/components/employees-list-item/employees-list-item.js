@@ -6,8 +6,9 @@ import * as events from "events";
      const {name,
             salary,
             onDelete,
-            onToggleRise,
-            onToggleIncrease,
+            // onToggleRise,
+            // onToggleIncrease,
+            onToggleProp,
             increase,
             rise,
      } = props
@@ -16,16 +17,16 @@ import * as events from "events";
         if(increase) className += ' increase'
         if(rise) className += ' like'
 
-
      return (
          <li className={className}>
              <span className="list-group-item-label"
-                   onClick={onToggleRise}>{name}</span>
+                   onClick={onToggleProp} data-toggle='rise'>{name}</span>
              <input type="text" className="list-group-item-input" defaultValue={salary + '$'}/>
              <div className='d-flex justify-content-center align-items-center'>
                  <button type="button"
-                         onClick={onToggleIncrease}
-                         className="btn-cookie btn-sm ">
+                         onClick={onToggleProp}
+                         className="btn-cookie btn-sm"
+                         data-toggle='increase'>
                      <i className="fas fa-cookie"></i>
                  </button>
                  <button type="button"
