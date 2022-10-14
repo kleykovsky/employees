@@ -1,10 +1,10 @@
 import classes from "./ButtonsStyle.module.css";
 
-const ButtonSubmit = ({text}) => {
+const ButtonSubmit = ({text, check}) => {
     return(
         <button
             className={classes.btnSubmit}
-        >
+            onClick={check}>
             {text}
         </button>
     )

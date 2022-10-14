@@ -10,6 +10,8 @@ class EmployeesAddForm extends Component {
         this.state = {
             name: '',
             salary: '',
+            classNam: false,
+            classSal: false,
         }
     }
 
@@ -36,11 +38,26 @@ class EmployeesAddForm extends Component {
             }))
     }
 
+    checkValueInput = () => {
+        if (this.state.classNam.length < 3 || !this.state.salary) {
+            this.setState(({
+                classNum: this.state.classNam = true,
+                classSal: this.state.classSal = true,
+            }))
+        } else {
+            this.setState(({
+                classNum: this.state.classNam = false,
+                classSal: this.state.classSal = false,
+            }))
+        }
+    }
 
     render() {
+        const {title} = this.props;
+        const {name, salary, classNam, classSal} = this.state;
         let className = 'form-control new-post-label'
-        const {title, classNam, classSal} = this.props;
-        const {name, salary} = this.state;
+        if(classNam) className += ' empty'
+        if(classSal) className += ' empty'
 
         return(
             <div className={'appAddForm'}>
@@ -61,7 +78,9 @@ class EmployeesAddForm extends Component {
                            value={salary}
                            onChange={this.onValueChange}
                     />
-                    <ButtonSubmit text={'Add new Person'}/>
+                    <ButtonSubmit text={'Add new Person'}
+                                  check={this.checkValueInput}
+                    />
                 </form>
                 <ButtonClick text={'Clear'}
                              rend={this.clrVal}

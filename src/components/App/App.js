@@ -11,9 +11,9 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                {name: 'Alex K.', salary: 1500, increase: false, rise: false, id: 1, classNam: true, classSal: true},
-                {name: 'John S.', salary: 1200, increase: false, rise: false, id: 2,  classNam: true, classSal: true},
-                {name: 'Anna R.', salary: 2000, increase: false, rise: false,  id: 3,  classNam: true, classSal: true},
+                {name: 'Alex K.', salary: 1500, increase: false, rise: false, id: 1},
+                {name: 'John S.', salary: 1200, increase: false, rise: false, id: 2},
+                {name: 'Anna R.', salary: 2000, increase: false, rise: false,  id: 3},
             ]
         }
         this.maxId = 4
@@ -37,6 +37,8 @@ class App extends Component {
         const newItem = {
             name,
             salary,
+            classNam: false,
+            classSal: false,
             increase: false,
             rise: false,
             id: this.maxId++
