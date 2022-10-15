@@ -11,10 +11,12 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                {name: 'Alex K.', salary: 1500, increase: false, rise: false, id: 1},
-                {name: 'John S.', salary: 1200, increase: false, rise: false, id: 2},
+                {name: 'Alex K.', salary: 1500, increase: false, rise: true, id: 1},
+                {name: 'John S.', salary: 900, increase: false, rise: false, id: 2},
                 {name: 'Anna R.', salary: 2000, increase: false, rise: false,  id: 3},
-            ]
+            ],
+            term: '',
+            filter: 'rise'
         }
         this.maxId = 4
     }
@@ -97,20 +99,70 @@ class App extends Component {
         console.log(`Rise this ${id}`);
     }
 
+    searchEmp = (items, term) => {
+        if(term.length === 0) {
+            return items;
+        }
+        return items.filter(item => {
+            return item.name.indexOf(term) > -1
+        })
+    }
+
+    onUpdateSearch = (term) => {
+        this.setState({term});
+    }
+
+    onFilterRise = () => {
+        this.setState(({data}) => {
+            return{
+                data: data.filter(item => item.rise === true),
+            }
+        })
+        return console.log('This click')
+    }
+
+    onFilterMore = () => {
+        this.setState(({data}) => {
+            return{
+                data: data.filter(item => item.salary > 1000),
+            }
+        })
+        return console.log('This click')
+    }
+
+    // onFilterAll = () => {
+    //     this.setState(({data}) => {
+    //         return{
+    //             data: data.filter(item => item.name !== ''),
+    //         }
+    //     })
+    //     return console.log('This click')
+    // }
+
+    filterPost =(items, filter) => {
+        switch(filter) {
+            case 'rise':
+                return items.filter(item => item.rise);
+            case'moreThen1000':
+                return items.filter(item => item.salary > 1000);
+            default:
+                return items
+        }
+    }
 
     render() {
 
         setTimeout(() => {
-            this.setState({
-                curTime: curTime
-            })
+            this.setState({curTime});
         },1000)
 
-        const {curTime,} = this.state
+        const {curTime, data, term, filter} = this.state;
         const employees = this.state.data.length;
         const increased = this.state.data.filter(item => item.increase).length;
-        const currDate = new Date().toLocaleDateString()
-        const time = new Date().toLocaleTimeString()
+        const currDate = new Date().toLocaleDateString();
+        const time = new Date().toLocaleTimeString();
+        // const visibleData = this.searchEmp(data, term);
+        const visibleData = this.filterPost(this.searchEmp(data, term), filter);
 
         return(
             <div className='App'>
@@ -124,13 +176,24 @@ class App extends Component {
                         curTime={time}
                 />
                 <div className="search-panel">
-                    <SearchPanel/>
-                    <AppFilter txt={'Все сотрудники'} active={false}/>
-                    <AppFilter txt={'На повышение'} active={true}/>
-                    <AppFilter txt={'З/П больше 1000$'} active={false}/>
+                    <SearchPanel
+                        onUpdateSearch={this.onUpdateSearch}
+                    />
+                    <AppFilter txt={'Все сотрудники'}
+                               active={true}
+                               // filterAll={}
+                    />
+                    <AppFilter txt={'На повышение'}
+                               active={false}
+                               filterRise={this.onFilterRise}
+                    />
+                    <AppFilter txt={'З/П больше 1000$'}
+                               active={false}
+                               filterMore={this.onFilterMore}
+                    />
                 </div>
                 <EmployeesList
-                    data={this.state.data}
+                    data={visibleData}
                     onDelete={this.deleteItem}
                     // onToggleIncrease={this.onToggleIncrease}
                     // onToggleRise={this.onToggleRise}
