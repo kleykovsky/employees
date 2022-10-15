@@ -1,0 +1,20 @@
+.appInfo {
+    padding: 35px;
+    background: linear-gradient(to top, rgba(6, 29, 49, 0.85), #393072);
+    border-radius: 4px;
+    box-shadow: 15px 15px 30px rgba(0,0,0, .15);
+    color: #fff;
+}
+.appSpanDate {
+    color: rgb(234, 234, 234);
+    font-size: 23px;
+    font-style: oblique;
+    border: solid 2px white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 3px 14px black;
+    background-color: #39365e;
+}
+.appInfo span{
+    margin-bottom: 20px;
+}

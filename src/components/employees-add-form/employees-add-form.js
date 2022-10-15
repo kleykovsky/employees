@@ -10,8 +10,10 @@ class EmployeesAddForm extends Component {
         this.state = {
             name: '',
             salary: '',
-            classNam: false,
-            classSal: false,
+            classNam: '',
+            classSal: '',
+            placeholderName:'Как его зовут?',
+            placeholderSalary: 'З/П в $',
         }
     }
 
@@ -43,18 +45,22 @@ class EmployeesAddForm extends Component {
             this.setState(({
                 classNum: this.state.classNam = true,
                 classSal: this.state.classSal = true,
+                placeholderName:  this.state.placeholderName = 'Заполните пожалуйста имя!',
+                placeholderSalary: this.state.placeholderSalary = 'Заполните пожалуйста зарплату!'
             }))
         } else {
             this.setState(({
                 classNum: this.state.classNam = false,
                 classSal: this.state.classSal = false,
+                placeholderName:  this.state.placeholderName = 'Как его зовут?',
+                placeholderSalary: this.state.placeholderSalary = 'З/П в $'
             }))
         }
     }
 
     render() {
         const {title} = this.props;
-        const {name, salary, classNam, classSal} = this.state;
+        const {name, salary, classNam, classSal, placeholderName, placeholderSalary} = this.state;
         let className = 'form-control new-post-label'
         if(classNam) className += ' empty'
         if(classSal) className += ' empty'
@@ -67,13 +73,13 @@ class EmployeesAddForm extends Component {
                     onSubmit = {this.onSubmit}>
                     <input type="text"
                            className={className}
-                           placeholder="Как его зовут?"
+                           placeholder={placeholderName}
                            name={'name'}
                            value={name}
                            onChange={this.onValueChange}/>
                     <input type="number"
                            className={className}
-                           placeholder="З/П в $"
+                           placeholder={placeholderSalary}
                            name={'salary'}
                            value={salary}
                            onChange={this.onValueChange}

@@ -97,10 +97,20 @@ class App extends Component {
         console.log(`Rise this ${id}`);
     }
 
+
     render() {
+
+        setTimeout(() => {
+            this.setState({
+                curTime: curTime
+            })
+        },1000)
+
+        const {curTime,} = this.state
         const employees = this.state.data.length;
         const increased = this.state.data.filter(item => item.increase).length;
         const currDate = new Date().toLocaleDateString()
+        const time = new Date().toLocaleTimeString()
 
         return(
             <div className='App'>
@@ -111,6 +121,7 @@ class App extends Component {
                         employees={employees}
                         increased={increased}
                         curData={currDate}
+                        curTime={time}
                 />
                 <div className="search-panel">
                     <SearchPanel/>
@@ -124,7 +135,6 @@ class App extends Component {
                     // onToggleIncrease={this.onToggleIncrease}
                     // onToggleRise={this.onToggleRise}
                     onToggleProp={this.onToggleProp}
-
                 />
                 <EmployeesAddForm
                     title={'Добавьте нового сотрудника'}
@@ -135,4 +145,5 @@ class App extends Component {
         )
     }
 }
+
 export default App;
