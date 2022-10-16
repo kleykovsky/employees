@@ -16,7 +16,7 @@ class App extends Component {
                 {name: 'Anna R.', salary: 2000, increase: false, rise: false,  id: 3},
             ],
             term: '',
-            filter: 'rise'
+            filter: 'all',
         }
         this.maxId = 4
     }
@@ -53,27 +53,27 @@ class App extends Component {
         });
     }
 
-    onToggleIncrease = (id) => {
-        // this.setState(({data}) => {
-        //     const index = data.findIndex(elem => elem.id === id)
-        //
-        //     const old = data[index];
-        //     const newItem = {...old, increase: !old.increase};
-        //     const newArr = [...data.slice(0, index), newItem, ...data.slice(index + 1)]
-        //     return{
-        //         data: newArr
-        //     }
-        // })
-
-        this.setState(({data}) => ({
-            data: data.map(item => {
-                if(item.id === id) {
-                    return{...item, increase: !item.increase}
-                }
-                return item;
-            })
-        }))
-    }
+    // onToggleIncrease = (id) => {
+    //     // this.setState(({data}) => {
+    //     //     const index = data.findIndex(elem => elem.id === id)
+    //     //
+    //     //     const old = data[index];
+    //     //     const newItem = {...old, increase: !old.increase};
+    //     //     const newArr = [...data.slice(0, index), newItem, ...data.slice(index + 1)]
+    //     //     return{
+    //     //         data: newArr
+    //     //     }
+    //     // })
+    //
+    //     this.setState(({data}) => ({
+    //         data: data.map(item => {
+    //             if(item.id === id) {
+    //                 return{...item, increase: !item.increase}
+    //             }
+    //             return item;
+    //         })
+    //     }))
+    // }
 
     // onToggleRise = (id) => {
     //     this.setState(({data}) => ({
@@ -112,23 +112,23 @@ class App extends Component {
         this.setState({term});
     }
 
-    onFilterRise = () => {
-        this.setState(({data}) => {
-            return{
-                data: data.filter(item => item.rise === true),
-            }
-        })
-        return console.log('This click')
-    }
+    // onFilterRise = () => {
+    //     this.setState(({data}) => {
+    //         return{
+    //             data: data.filter(item => item.rise === true),
+    //         }
+    //     })
+    //     return console.log('This click')
+    // }
 
-    onFilterMore = () => {
-        this.setState(({data}) => {
-            return{
-                data: data.filter(item => item.salary > 1000),
-            }
-        })
-        return console.log('This click')
-    }
+    // onFilterMore = () => {
+    //     this.setState(({data}) => {
+    //         return{
+    //             data: data.filter(item => item.salary > 1000),
+    //         }
+    //     })
+    //     return console.log('This click')
+    // }
 
     // onFilterAll = () => {
     //     this.setState(({data}) => {
@@ -150,6 +150,9 @@ class App extends Component {
         }
     }
 
+    onFilterSelect = (filter) => {
+        this.setState({filter});
+    }
     render() {
 
         setTimeout(() => {
@@ -179,18 +182,19 @@ class App extends Component {
                     <SearchPanel
                         onUpdateSearch={this.onUpdateSearch}
                     />
-                    <AppFilter txt={'Все сотрудники'}
-                               active={true}
-                               // filterAll={}
+                    <AppFilter filter={filter}
+                               onFilterSelect={this.onFilterSelect}
                     />
-                    <AppFilter txt={'На повышение'}
-                               active={false}
-                               filterRise={this.onFilterRise}
-                    />
-                    <AppFilter txt={'З/П больше 1000$'}
-                               active={false}
-                               filterMore={this.onFilterMore}
-                    />
+                    {/*filterAll={}*/}
+                    {/*<AppFilter txt={'На повышение'}*/}
+                    {/*           active={false}*/}
+                    {/*           filterRise={this.onFilterRise}*/}
+                    {/*/>*/}
+                    {/*<AppFilter txt={'З/П больше 1000$'}*/}
+                    {/*           active={false}*/}
+                    {/*           filterMore={this.onFilterMore}*/}
+                    {/*/>*/}
+
                 </div>
                 <EmployeesList
                     data={visibleData}
