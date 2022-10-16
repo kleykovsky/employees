@@ -5,6 +5,7 @@ import AppFilter from    "../app-filter/app-filter";
 import EmployeesList from "../employees-list/employees-list";
 import EmployeesAddForm from "../employees-add-form/employees-add-form";
 import './App.css';
+import nextId from "react-id-generator";
 
 class App extends Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class App extends Component {
         this.maxId = 4
     }
 
+    // удаление сотрудника из списка по id
     deleteItem = (id) => {
         this.setState(({data}) => {
             // console.log(data)
@@ -34,8 +36,8 @@ class App extends Component {
         })
     }
 
+    // добавление нового сотрудника
     addItem = (name, salary) => {
-
         const newItem = {
             name,
             salary,
@@ -87,6 +89,7 @@ class App extends Component {
     //     console.log(`Rise this ${id}`);
     // }
 
+    // переключение состояния(props) у сотрудников
     onToggleProp = (id, prop) => {
         this.setState(({data}) => ({
             data: data.map(item => {
@@ -99,6 +102,7 @@ class App extends Component {
         console.log(`Rise this ${id}`);
     }
 
+    // поиск сотрудника в строке поиска
     searchEmp = (items, term) => {
         if(term.length === 0) {
             return items;
@@ -108,6 +112,7 @@ class App extends Component {
         })
     }
 
+    //
     onUpdateSearch = (term) => {
         this.setState({term});
     }
@@ -139,6 +144,7 @@ class App extends Component {
     //     return console.log('This click')
     // }
 
+    // фильтрация по кнопкам
     filterPost =(items, filter) => {
         switch(filter) {
             case 'rise':
@@ -154,10 +160,11 @@ class App extends Component {
         this.setState({filter});
     }
     render() {
-
+        // текущее время
         setTimeout(() => {
             this.setState({curTime});
         },1000)
+
 
         const {curTime, data, term, filter} = this.state;
         const employees = this.state.data.length;

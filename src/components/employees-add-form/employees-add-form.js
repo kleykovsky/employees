@@ -1,5 +1,5 @@
 import {Component, useState} from "react";
-import './employees-add-form.css';
+import './emloyees-add-form.css';
 import ButtonSubmit from "../UI/Buttons/ButtonSubmit";
 import ButtonClick from "../UI/Buttons/ButtonClick";
 
