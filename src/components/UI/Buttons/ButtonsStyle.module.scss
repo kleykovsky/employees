@@ -1,0 +1,37 @@
+@import  '../../../variables';
+
+.btnSubmit {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    border: solid 1px ;
+    border-radius: 5px;
+    color: $BtnSubColor-red;
+    background-color: rgba(10, 47, 80, 0);
+}
+.btnSubmit:hover {
+    background-color: white;
+    color: #000000;
+    border: none;
+}
+.btnCircle {
+    @extend .btnSubmit;
+    width: 60px;
+    height: 60px;
+    //font-size: 18px;
+    //border: solid 1px #330b0b;
+    border-radius: 100%;
+    //color: #330b0b;
+    //background-color: rgba(57, 48, 114, 0);
+}
+.btnSquare{
+    @extend .btnCircle;
+    border-radius: 20%;
+    font-size: 14px;
+    background: linear-gradient(to top, rgb(29, 145, 87), #770f72);
+}
+//.btnClick:hover {
+//    background-color: white;
+//    color: #330b0b;
+//    border: none;
+//}

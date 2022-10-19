@@ -1,8 +1,8 @@
 import {Component, useState} from "react";
 import './emloyees-add-form.css';
 import ButtonSubmit from "../UI/Buttons/ButtonSubmit";
-import ButtonClick from "../UI/Buttons/ButtonClick";
-
+import ButtonCircle from "../UI/Buttons/ButtonCircle";
+import ButtonSquare from "../UI/Buttons/ButtonSquare";
 
 class EmployeesAddForm extends Component {
     constructor(props) {
@@ -88,9 +88,12 @@ class EmployeesAddForm extends Component {
                                   check={this.checkValueInput}
                     />
                 </form>
-                <ButtonClick text={'Clear'}
-                             rend={this.clrVal}
-                />
+                <wrapperBtn className={'wrapperBtn'}>
+                    <ButtonCircle text={'Clear'}
+                                  rend={this.clrVal}/>
+                    <ButtonSquare text={'Change color'}/>
+                </wrapperBtn>
+
             </div>
         )
     }

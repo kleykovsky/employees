@@ -6,7 +6,6 @@
   box-shadow: 15px 15px 30px rgba(0,0,0, .15);
   color: #fff;
 }
-
 .add-form {
   margin: 20px 0 20px 0;
 }
@@ -20,7 +19,11 @@
   width: 10px;
   height: 20px;
 }
-
 .empty {
   background-color: rgba(139, 0, 0, 0.35);
+}
+.wrapperBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

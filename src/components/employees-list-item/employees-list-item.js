@@ -38,6 +38,5 @@ import * as events from "events";
              </div>
          </li>
      )
-
 }
 export default EmployeesListItem;

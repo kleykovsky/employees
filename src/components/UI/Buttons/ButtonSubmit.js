@@ -1,4 +1,4 @@
-import classes from "./ButtonsStyle.module.css";
+import classes from "./ButtonsStyle.module.scss";
 
 const ButtonSubmit = ({text, check}) => {
     return(
