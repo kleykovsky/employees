@@ -6,6 +6,7 @@ import EmployeesList from "../employees-list/employees-list";
 import EmployeesAddForm from "../employees-add-form/employees-add-form";
 import './App.css';
 import nextId from "react-id-generator";
+import ButtonSquare from "../UI/Buttons/ButtonSquare";
 
 class App extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
             ],
             term: '',
             filter: 'all',
+            bgColor: 'white',
         }
         this.maxId = 4
     }
@@ -174,9 +176,11 @@ class App extends Component {
         // const visibleData = this.searchEmp(data, term);
         const visibleData = this.filterPost(this.searchEmp(data, term), filter);
 
+
         return(
+
             <div className='App'>
-                <AppInfo
+                    <AppInfo
                         txtH1={`Учет сотрудников в компании: ***`}
                         txtH2={'Общее число сотрудников:'}
                         txtH3={'Премию получат:'}
@@ -184,7 +188,7 @@ class App extends Component {
                         increased={increased}
                         curData={currDate}
                         curTime={time}
-                />
+                    />
                 <div className="search-panel">
                     <SearchPanel
                         onUpdateSearch={this.onUpdateSearch}
@@ -214,6 +218,7 @@ class App extends Component {
                     title={'Добавьте нового сотрудника'}
                     text={'Submit'}
                     addNewPerson={this.addItem}
+                    changeColor={this.changeColor}
                 />
             </div>
         )

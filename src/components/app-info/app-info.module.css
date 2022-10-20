@@ -1,4 +1,6 @@
 .appInfo {
+    display: flex;
+    flex-direction: column;
     padding: 35px;
     background: linear-gradient(to top, rgba(6, 29, 49, 0.85), #393072);
     border-radius: 4px;
@@ -6,6 +8,9 @@
     color: #fff;
 }
 .appSpanDate {
+    display: block;
+    position: relative;
+    width: 525px;
     color: rgb(234, 234, 234);
     font-size: 23px;
     font-style: oblique;
@@ -14,7 +19,16 @@
     border-radius: 5px;
     box-shadow: 0 3px 14px black;
     background-color: #39365e;
+    margin-right: 200px;
+    bottom: 50px;
 }
-.appInfo span{
-    margin-bottom: 20px;
+
+.wrapper {
+    display: block;
+    width: 60px;
+    position: relative;
+    top: 5px;
+    left: 95%;
+
 }
+

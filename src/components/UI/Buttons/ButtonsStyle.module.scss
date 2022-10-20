@@ -14,6 +14,11 @@
     color: #000000;
     border: none;
 }
+
+.btnSubmit:active {
+    transform: scale(0.9);
+}
+
 .btnCircle {
     @extend .btnSubmit;
     width: 60px;
@@ -28,8 +33,9 @@
     @extend .btnCircle;
     border-radius: 20%;
     font-size: 14px;
-    background: linear-gradient(to top, rgb(29, 145, 87), #770f72);
+    background: linear-gradient(to top, rgb(29, 145, 87), #6e35ab);
 }
+
 //.btnClick:hover {
 //    background-color: white;
 //    color: #330b0b;

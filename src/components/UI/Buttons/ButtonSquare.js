@@ -1,10 +1,10 @@
 import classes from './ButtonsStyle.module.scss';
 
-const ButtonSquare = ({change, text}) => {
+const ButtonSquare = ({change, text, changeColor}) => {
     return (
         <button
             className={classes.btnSquare}
-            onClick={change}>
+            onClick={changeColor}>
             {text}
         </button>
     )

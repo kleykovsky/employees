@@ -1,8 +1,10 @@
-import {Component, useState} from "react";
+import {Component} from "react";
 import './emloyees-add-form.css';
 import ButtonSubmit from "../UI/Buttons/ButtonSubmit";
 import ButtonCircle from "../UI/Buttons/ButtonCircle";
 import ButtonSquare from "../UI/Buttons/ButtonSquare";
+import {ToggleButton} from "@mui/material";
+import ButtonSwitch from "../UI/Buttons/ButtonSwitch";
 
 class EmployeesAddForm extends Component {
     constructor(props) {
@@ -14,6 +16,8 @@ class EmployeesAddForm extends Component {
             classSal: '',
             placeholderName:'Как его зовут?',
             placeholderSalary: 'З/П в $',
+            changeColor: false,
+
         }
     }
 
@@ -58,15 +62,31 @@ class EmployeesAddForm extends Component {
         }
     }
 
+    changeColor = () => {
+        if(this.state.changeColor === false) {
+            this.setState(({
+                changeColor: this.state.changeColor = true
+            }))
+        } else {
+            this.setState(({
+                changeColor: this.state.changeColo = false
+            }))
+        }
+    }
+
     render() {
         const {title} = this.props;
-        const {name, salary, classNam, classSal, placeholderName, placeholderSalary} = this.state;
+        const {name, salary, classNam, classSal, placeholderName, placeholderSalary, changeColor} = this.state;
         let className = 'form-control new-post-label'
         if(classNam) className += ' empty'
         if(classSal) className += ' empty'
+        let bgColor = 'appAddForm'
+        if(changeColor) bgColor += ' bgColor';
+
+
 
         return(
-            <div className={'appAddForm'}>
+            <div className={bgColor}>
                 <h3>{title}</h3>
                 <form
                     className="add-form d-flex"
@@ -88,12 +108,14 @@ class EmployeesAddForm extends Component {
                                   check={this.checkValueInput}
                     />
                 </form>
-                <wrapperBtn className={'wrapperBtn'}>
+                <div className={'wrapperBtn'}>
                     <ButtonCircle text={'Clear'}
                                   rend={this.clrVal}/>
-                    <ButtonSquare text={'Change color'}/>
-                </wrapperBtn>
+                    <ButtonSwitch change={this.changeColor}/>
+                    <ButtonSquare text={'Change color'}
+                                  changeColor={this.changeColor}/>
 
+                </div>
             </div>
         )
     }
