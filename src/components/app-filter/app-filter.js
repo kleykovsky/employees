@@ -31,8 +31,6 @@ const AppFilter = (props) => {
     )
 }
 export default AppFilter;
-
-
 // return (
 //     <div className={'btn-group'}>
 //         <button className={active ? 'btn btn-light' : 'btn btn-outline-light'}
