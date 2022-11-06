@@ -84,7 +84,6 @@ class EmployeesAddForm extends Component {
         if(changeColor) bgColor += ' bgColor';
 
 
-
         return(
             <div className={bgColor}>
                 <h3>{title}</h3>
@@ -112,8 +111,8 @@ class EmployeesAddForm extends Component {
                     <ButtonCircle text={'Clear'}
                                   rend={this.clrVal}/>
                     <ButtonSwitch change={this.changeColor}/>
-                    <ButtonSquare text={'Change color'}
-                                  changeColor={this.changeColor}/>
+                    {/*<ButtonSquare text={'Change color'}*/}
+                    {/*              changeColor={this.changeColor}/>*/}
 
                 </div>
             </div>

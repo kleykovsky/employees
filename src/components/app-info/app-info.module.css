@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 35px;
-    background: linear-gradient(to top, rgba(6, 29, 49, 0.85), #393072);
+    background: linear-gradient(to top, rgba(6, 29, 49, 0.85), #3f3754);
     border-radius: 4px;
     box-shadow: 15px 15px 30px rgba(0,0,0, .15);
     color: #fff;
@@ -20,7 +20,7 @@
     box-shadow: 0 3px 14px black;
     background-color: #39365e;
     margin-right: 200px;
-    bottom: 50px;
+    bottom: 10px;
 }
 
 .wrapper {
